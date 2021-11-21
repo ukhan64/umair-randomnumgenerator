@@ -6,40 +6,36 @@ import java.util.Random;
 public class Generaterandomnums {
 
 	public static void rangenerator() {
-	int start = 100;
-    int end = 1001;
-    int counter = 500;
+		int start = 1;
+		int end = 1001;
+		int counter = 500;
 
-    int smallest;
-    int greatest;
-    int randomInt ;
+		int smallest;
+		int greatest;
+		int randomInt;
 
-    int numbers [] = new int[counter];
-    Random random = new Random(); 
+		int numbers[] = new int[counter];
+		Random random = new Random();
 
-    randomInt = random.nextInt(end-start) + start;
-    numbers [0] = randomInt;
+		randomInt = random.nextInt(end - start) + start;
+		numbers[0] = randomInt;
 
-    smallest = randomInt;
-    greatest = randomInt;
+		smallest = randomInt;
+		greatest = randomInt;
 
+		for (int i = 1; i < counter; i++) {
 
-    System.out.println("0th Greatest : " + greatest + "\n");
-    System.out.println("0th Smallest : " + smallest + "\n");
+			numbers[i] = random.nextInt(end - start) + start;
 
-    for(int i=1;i<counter;i++) {
+			smallest = Math.min(smallest, numbers[i]);
+			greatest = Math.max(greatest, numbers[i]);
 
-        numbers[i] = random.nextInt(end-start) + start;
-
-        smallest = Math.min(smallest,numbers[i]);
-        greatest = Math.max(greatest,numbers[i]);
-
-        System.out.println("Random numbers: " + Arrays.toString(numbers) + "\n\n");
-        System.out.println(i + "th Greatest : " + greatest + "\n");
-        System.out.println(i + "th Smallest : " + smallest + "\n");
- 
-    }
+		}
+		System.out.println("Random numbers: " + Arrays.toString(numbers) + "\n\n");
+		System.out.println("Greatest : " + greatest + "\n");
+		System.out.println("Smallest : " + smallest + "\n");
 	}
+
 	public static void main(String[] args) {
 		rangenerator();
 	}
